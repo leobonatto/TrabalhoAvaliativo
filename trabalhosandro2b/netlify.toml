@@ -1,0 +1,12 @@
+[build]
+  # Comando que o Netlify vai rodar para construir seu projeto
+  command = "npm run build"
+  
+  # Pasta onde o Vite cospe os arquivos prontos para produção
+  publish = "dist"
+
+[[redirects]]
+  # Redireciona todas as rotas para o index.html (Essencial para React/SPAs não darem erro 404)
+  from = "/*"
+  to = "/index.html"
+  status = 200

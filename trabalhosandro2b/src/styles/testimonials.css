@@ -1,0 +1,104 @@
+/* =========================================
+   SEÇÃO: DEPOIMENTOS
+   ========================================= */
+#testimonials {
+  background-color: #cde6f7; /* O fundo azul claro */
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+#testimonials header p {
+  color: #29a0f5;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+#testimonials header h2 {
+  font-size: 2.5rem;
+  color: #1a1a24;
+  margin-bottom: 1rem;
+}
+
+#testimonials header > p:last-child {
+  color: #666;
+  max-width: 650px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+/* Container do Carrossel */
+.carousel {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.carousel-content {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap; /* Para cair pra linha de baixo no celular */
+  justify-content: center;
+}
+
+/* O Cartão Branco */
+.carousel-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem; /* Espaço entre a foto, texto e estrelas */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* A Foto de Perfil */
+.carousel-card > img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #e0e0e0; /* Fundo cinza caso a imagem não carregue */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem; /* Deixa o texto de erro pequenininho */
+  color: #888;
+}
+
+.testimony p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* As Estrelas */
+.rating {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+/* A mágica que resolve o seu bug: FORÇA O TAMANHO DAS ESTRELAS */
+.rating img {
+  width: 22px !important;
+  height: 20px !important;
+}
+
+/* Nomes */
+.names .bold {
+  font-weight: 700;
+  color: #1a1a24;
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+}
+
+.names p:last-child {
+  font-size: 0.875rem;
+  color: #888;
+}

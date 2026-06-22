@@ -1,0 +1,111 @@
+.reverse-color {
+  color: var(--primary-color);
+}
+
+.reverse-color:hover {
+  color: var(--second-text-color);
+}
+
+.ml-lg {
+  margin-right: 2.875rem;
+}
+
+.mobile-menu {
+  display: initial;
+  z-index: 3;
+}
+
+.mobile-menu-content {
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  padding-top: 1.5rem;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-color);
+}
+
+.mobile-menu-content ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.mobile-menu-content a {
+  font-size: var(--fs-lg);
+}
+
+@media (width >= 1280px) {
+  header {
+    position: relative;
+    z-index: 1;
+  }
+
+  nav > img {
+    display: initial;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu-content {
+    display: none;
+  }
+}
+/* =========================================
+   CABEÇALHO / HEADER
+   ========================================= */
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Estilo da lista de links (Home, Soluções, etc) */
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem; /* Espaçamento idêntico ao do Figma */
+  margin: 0;
+  padding: 0;
+}
+
+/* Tirando o sublinhado e o azul padrão dos links */
+header nav ul li a {
+  text-decoration: none;
+  color: #666666; /* Cor cinza escuro */
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #29a0f5; /* Fica azul ao passar o mouse */
+}
+
+/* Estilo específico para o botão de Login e links que precisam ficar azuis */
+header nav .reverse-color {
+  color: #29a0f5;
+  text-decoration: none;
+  font-weight: 700;
+  margin-right: 1.5rem;
+}
+
+/* Garantindo que as classes utilitárias de Flexbox funcionem globalmente */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}

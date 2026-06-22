@@ -1,0 +1,265 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    --bg-color: #FFF;
+    --text-color: #252B42;
+    --second-text-color: #737373;
+    --light-text-color: #FFF;
+    --light-gray: #F8F8F8;
+    --primary-color: #23A6F0;
+    --secondary-color: #B2E3FF;
+
+    --ff-sans: "Montserrat", system-ui, sans-serif;
+    --fw-base: 400;
+    --fw-md: 500;
+    --fw-bold: 800;
+
+    --fs-sm: 0.875rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.25rem;
+    --fs-xl: 1.75rem;
+    --fs-2xl: 2.25rem;
+
+    --py-sm: 0.875rem;
+    --py-base: 1rem;
+    --py-lg: 1.5rem;
+    --py-xl: 3rem;
+    --px-lg: 1.5rem;
+}
+
+html {
+    font-family: var(--ff-sans);
+    font-weight: var(--fw-base);
+    font-size: var(--fs-base);
+    line-height: 1.6;
+    color: var(--text-color);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    color: var(--text-color);
+    font-weight: var(--fw-bold);
+    letter-spacing: -0.04em;
+}
+
+h1 {
+    font-size: var(--fs-2xl);
+}
+
+h2 {
+    font-size: var(--fs-xl);
+}
+
+h3 {
+    font-size: var(--fs-lg);
+}
+
+a {
+    text-decoration: none;
+    color: var(--second-text-color);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-sm);
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+img {
+    max-width: 100%;
+    display: inline-block;
+}
+
+ul {
+    list-style: none;
+}
+
+@media (width >= 1280px) {
+    :root {
+        --fs-lg: 2rem;
+        --fs-xl: 2.625rem;
+        --fs-2xl: 4rem;
+
+        --py-sm: 1rem;
+        --py-base: 1.5rem;
+        --py-lg: 2.5rem;
+        --py-xl: 5rem;
+        --pg-lg: 2rem;
+    }
+}
+
+/* =========================================
+   SEÇÃO: ENTRE EM CONTATO
+   ========================================= */
+#contact {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+#contact header .contact-tag {
+  color: #29a0f5; /* Azul do projeto */
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+#contact header h2 {
+  font-size: 2.5rem;
+  color: #1a1a24;
+  margin-bottom: 1rem;
+}
+
+#contact header p {
+  color: #666;
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #29a0f5;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form button {
+  width: 200px;
+  margin-top: 1rem;
+}
+
+/* =========================================
+   RODAPÉ (FOOTER)
+   ========================================= */
+.footer {
+  margin-top: 5rem;
+  background-color: #ffffff;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 4rem 1rem;
+  gap: 3rem;
+}
+
+.footer-brand h2 {
+  color: #1a1a24;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: #29a0f5;
+}
+
+.footer-links-group {
+  display: flex;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.footer-col h3 {
+  color: #1a1a24;
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-col ul li a {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #29a0f5;
+}
+
+.footer-bottom {
+  background-color: #f8f9fa; /* Fundo cinza claro */
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.footer-bottom p {
+  color: #666;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Responsividade Básica para Mobile */
+@media (max-width: 768px) {
+  .footer-grid {
+    flex-direction: column;
+  }
+  .footer-links-group {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
