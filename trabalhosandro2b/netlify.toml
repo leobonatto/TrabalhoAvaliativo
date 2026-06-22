@@ -1,12 +1,20 @@
 [build]
-  # Comando que o Netlify vai rodar para construir seu projeto
   command = "npm run build"
-  
-  # Pasta onde o Vite cospe os arquivos prontos para produção
   publish = "dist"
+  functions = "netlify/functions"
+
+# 🔥 ADICIONE ESSA SEÇÃO ABAIXO PARA O VITE FUNCIONAR:
+[dev]
+  command = "npm run dev"   # Comando que inicia o seu Vite
+  targetPort = 5173         # Porta padrão que o Vite usa localmente
+  port = 8888               # Porta que você vai acessar no navegador
 
 [[redirects]]
-  # Redireciona todas as rotas para o index.html (Essencial para React/SPAs não darem erro 404)
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

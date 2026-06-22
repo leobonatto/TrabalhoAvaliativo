@@ -32,6 +32,43 @@ export default function Home() {
     }, [showMobileMenu]);
 
     const closeMenu = () => setShowMobileMenu(false);
+    
+    // --- ESTADOS DO FORMULÁRIO DE CONTATO ---
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+    const [status, setStatus] = useState("idle"); // idle, loading, success, error
+    const [feedbackMsg, setFeedbackMsg] = useState("");
+
+
+    // --- FUNÇÃO QUE ENVIA O E-MAIL ---
+    const handleContactSubmit = async (e) => {
+        e.preventDefault();
+        setStatus("loading");
+        setFeedbackMsg("");
+
+        try {
+            const response = await fetch("/api/send-email", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, message }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Erro ao enviar mensagem.");
+            }
+
+            setStatus("success");
+            setFeedbackMsg("Mensagem enviada com sucesso! Retornaremos em breve.");
+            setEmail("");
+            setMessage("");
+            
+        } catch (error) {
+            setStatus("error");
+            setFeedbackMsg(error.message);
+        }
+    };
 
     return (
         <>
@@ -295,10 +332,31 @@ export default function Home() {
                         </p>
                     </header>
 
-                    <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-                        <input type="email" placeholder="Seu melhor Email" required />
-                        <textarea placeholder="Motivo do contato. Ex: Gostei muito do produto X, poderia me enviar um orçamento?" required></textarea>
-                        <Button text="Enviar" />
+                    <form className="contact-form" onSubmit={handleContactSubmit}>
+                        <input 
+                            type="email" 
+                            placeholder="Seu melhor Email" 
+                            required 
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            disabled={status === "loading"}
+                        />
+                        <textarea 
+                            placeholder="Motivo do contato. Ex: Gostei muito do produto X, poderia me enviar um orçamento?" 
+                            required
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            disabled={status === "loading"}
+                        ></textarea>
+                        
+                        <Button 
+                            text={status === "loading" ? "Enviando..." : "Enviar"} 
+                            disabled={status === "loading"}
+                        />
+
+                        {/* Mensagens de Sucesso ou Erro */}
+                        {status === "success" && <p style={{ color: "green", fontWeight: "bold" }}>{feedbackMsg}</p>}
+                        {status === "error" && <p style={{ color: "red", fontWeight: "bold" }}>{feedbackMsg}</p>}
                     </form>
                 </section>
             </main>
