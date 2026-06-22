@@ -47,11 +47,17 @@ export default function Home() {
         setFeedbackMsg("");
 
         try {
-            const response = await fetch("/api/send-email", {
+            const response = await fetch("/api/send-emails", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, message }),
             });
+
+            // Check if response is JSON before parsing
+            const contentType = response.headers.get("content-type");
+            if (!contentType || !contentType.includes("application/json")) {
+                throw new Error("Erro ao conectar com o servidor. Tente novamente.");
+            }
 
             const data = await response.json();
 
