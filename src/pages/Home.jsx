@@ -47,7 +47,7 @@ export default function Home() {
         setFeedbackMsg("");
 
         try {
-            const response = await fetch("/.netlify/functions/send-emails", {
+            const response = await fetch("/.netlify/functions/send-emails.ts", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, message }),
